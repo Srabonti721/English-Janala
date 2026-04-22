@@ -22,6 +22,10 @@
             color: #422AD5;
             border: 1px solid #422AD5;
         }
+        .active{
+            background-color: #422AD5;
+            color: white;
+        }
     </style>
 </head>
 
@@ -86,7 +90,20 @@
 </div>
           </div>
      </section>
+<!-- modal -->
+<dialog id="card_details" class="modal">
+  <div class="modal-box">
+   <div id="details-container">
 
+   </div>
+    <div class="">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn bg-[#422AD5] text-white text-sm rounded-lg font-medium">Complete Learning</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     <!-- frequent -->
      <section id="frequent" class="my-5 px-10">
         <h1 class="text-4xl text-center font-bold py-5"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>

@@ -12,11 +12,57 @@ frequent.scrollIntoView({
    behavior:"smooth"
 })
 })
+
+// remove active class
+function removeActiveClass (){
+   const clickBtn = document.getElementsByClassName("active");
+ for(let btn of clickBtn){
+   btn.classList.remove("active")
+ }
+}
+// load card details
+const loadCardDetails = (id) =>{
+// console.log(id);
+const url =`https://openapi.programming-hero.com/api/word/${id}`
+// console.log(url);
+fetch(url)
+.then(res => res.json())
+.then(data => displayCardDetails(data.data))
+
+}
+
+const displayCardDetails = (cardDetails) =>{
+   // console.log(CardDetails);
+   document.getElementById("card_details").showModal()
+   const detailsContainer = document.getElementById("details-container")
+   detailsContainer.innerHTML=`
+<div class = "space-y-2">
+   <h1 class="font-semibold text-3xl">${cardDetails.word}</h1>
+   <h2 class="font-semibold text-xl ">meaning</h3>
+   <p>${cardDetails.meaning}</p>
+</div>
+<div class = "space-y-1 my-4">
+   <h2 class="font-semibold text-xl ">Example</h3>
+    <p>${cardDetails.sentence}</p>
+</div>
+<div class="my-4">
+   <h1 class="font-semibold text-xl my-2">সমার্থক শব্দ গুলো</h1>
+<button class ="btn">${cardDetails.synonyms[0]}</button>
+<button class ="btn mx-4">${cardDetails.synonyms[1]}</button>
+<button class ="btn">${cardDetails.synonyms[2]}</button>
+</div>
+   `
+
+}
 //  all button load display
 const loadLevelData = () =>{
+   // console.log(data);
+   
     fetch('https://openapi.programming-hero.com/api/levels/all')
     .then(res =>res.json())
-    .then(data => displayLevelData(data.data))
+    .then(data => {
+      displayLevelData(data.data)
+    })
 }
 
 const displayLevelData = (datas) =>{
@@ -26,9 +72,7 @@ datas.forEach(data => {
    //  console.log(data.level_no);
    const div = document.createElement("div");
    div.innerHTML=`
-          <div class="learn">
-                    <button onclick="loadSingleBtnData(${data.level_no})" class="btn primary-color"><img src="assets/fa-book-open.png" alt="">Learn-${data.level_no}</button>
-                </div>
+                    <button id="btn-${data.level_no}" onclick="loadSingleBtnData(${data.level_no})" class="btn  primary-color  "><img src="assets/fa-book-open.png" alt="">Learn-${data.level_no}</button>      
    `
    btnContainer.append(div)
 });
@@ -39,7 +83,12 @@ const loadSingleBtnData = (level) =>{
    //  console.log(url);
    fetch(url)
    .then(res => res.json())
-   .then(data =>displaySingleBtnData(data.data))
+   .then(data =>{
+      removeActiveClass()
+          const clickBtn = document.getElementById(`btn-${level}`)
+      // console.log(clickBtn);
+      clickBtn.classList.add("active")
+      displaySingleBtnData(data.data)})
 }
 
 const displaySingleBtnData = (allDatas) =>{
@@ -68,7 +117,7 @@ cardContainerDiv.innerHTML=`
    <p class="text-2xl font-semibold">${data.meaning}/${data.pronunciation}</p>
   </div>
     <div class="flex justify-between items-center mt-2 ">
-      <button class="btn">
+      <button onclick="loadCardDetails('${data.id}')" class="btn">
         <img class="w-8" src="https://img.icons8.com/?size=64&id=hSqH00VDLIBm&format=png" alt="">
       </button>
       <button class="btn">
