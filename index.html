@@ -13,13 +13,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <style>
         .font-poppins {
             font-family: "Poppins", sans-serif;
         }
 
         .primary-color {
-            color: #422AD5;
+            /* color: #422AD5; */
             border: 1px solid #422AD5;
         }
 
@@ -27,13 +28,17 @@
             background-color: #422AD5;
             color: white;
         }
+
+        .btn:hover img {
+            filter: brightness(0) saturate(100%) invert(1);
+        }
     </style>
 </head>
 
 <body class="font-poppins">
     <!-- navbar -->
     <header id="nav-hide" class="bg-[#C6BDBD20] sticky top-0 z-10 hidden">
-        <nav class=" w-11/12 mx-auto py-5 flex justify-between " >
+        <nav class=" w-11/12 mx-auto py-5 flex justify-between ">
             <div class="nav-logo flex justify-center items-center">
                 <h1 class="text-xl font-semibold">English</h1>
                 <img src="assets/logo.png" alt="">
@@ -41,14 +46,19 @@
             </div>
             <div class="flex justify-center items-center gap-2">
                 <div class="faq">
-                    <button id="faq-btn" class="btn primary-color"><img src="assets/fa-circle-question.png" alt="">
+                    <button id="faq-btn"
+                        class="btn primary-color text-[#422AD5] hover:bg-[#422AD5] hover:text-white"><img
+                            src="assets/fa-circle-question.png" alt="">
                         FAQ</button>
                 </div>
                 <div id="learn-btn" class="learn">
-                    <button class="btn primary-color"><img src="assets/fa-book-open.png" alt="">Learn</button>
+                    <button class="btn primary-color text-[#422AD5] hover:bg-[#422AD5] hover:text-white"><img
+                            src="assets/fa-book-open.png" alt="">Learn</button>
                 </div>
                 <div class="logout">
-                    <button id="logout" class="btn primary-color"><img src="assets/fa-arrow-right-from-bracket.png" alt="">
+                    <button id="logout"
+                        class="btn primary-color text-[#422AD5] hover:bg-[#422AD5] hover:text-white"><img
+                            src="assets/fa-arrow-right-from-bracket.png" alt="">
                         Logout</button>
                 </div>
             </div>
@@ -67,7 +77,8 @@
                     </p>
                     <form class="space-y-4 flex flex-col">
                         <input id="input-name" type="text" class="input" placeholder="Enter Your Name" required />
-                        <input  id="input-password" type="number" class="input" placeholder="Enter login code (123456)" required />
+                        <input id="input-password" type="number" class="input" placeholder="Enter login code (123456)"
+                            required />
                         <div>
                             <button id="get-started" class="btn btn-primary my-2">Get Started</button>
                         </div>
@@ -81,7 +92,7 @@
     <section id="vocabularie" class="my-40 hidden ">
         <h1 class="text-4xl text-center font-bold py-5"><span class="text-[#00BCFF]">Let's </span> Learn Vocabularies
         </h1>
-            <div id="learn-btn-container" class="flex justify-center items-center gap-4">
+        <div id="learn-btn-container" class="flex justify-center items-center gap-4">
 
         </div>
         <div id="card-container" class="grid grid-cols-3 gap-4 py-5 px-5 ">
@@ -94,9 +105,9 @@
         </div>
     </section>
     <!-- loading -->
- <section id="loading" class="text-center my-10 hidden">
-    <span class="loading loading-dots loading-xl"></span>
- </section>
+    <section id="loading" class="text-center my-10 hidden">
+        <span class="loading loading-dots loading-xl"></span>
+    </section>
     <!-- modal -->
     <dialog id="card_details" class="modal">
         <div class="modal-box">
@@ -119,33 +130,49 @@
         <div class="collapse collapse-plus bg-[#FFEBEB20] border border-base-300 my-4">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title font-semibold">What is the difference between var, let, and const</div>
-            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, var, let, এবং const হলো ভেরিয়েবল ডিক্লারেশনের জন্য ব্যবহৃত কীওয়ার্ড। `var` দিয়ে ডিক্লেয়ার করা ভ্যারিয়েবলগুলো if বা for লুপের মতো ব্লক বাউন্ডারি উপেক্ষা করে, যে ফাংশনে সেগুলোকে সংজ্ঞায়িত করা হয় তার সর্বত্র অ্যাক্সেসযোগ্য থাকে । `let` এবং `const` শুধুমাত্র সেই নির্দিষ্ট ব্লক {}-এর মধ্যেই সীমাবদ্ধ থাকে যেখানে সেগুলোকে লেখা হয়। const-কে ঘোষণার সময়ই একটি মান দিয়ে প্রারম্ভিকীকরণ করতে হয়, অপরদিকে var এবং let-কে প্রথমে ঘোষণা করে পরে মান নির্ধারণ করা যায়।</div>
+            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, var, let, এবং const হলো ভেরিয়েবল ডিক্লারেশনের জন্য
+                ব্যবহৃত কীওয়ার্ড। `var` দিয়ে ডিক্লেয়ার করা ভ্যারিয়েবলগুলো if বা for লুপের মতো ব্লক বাউন্ডারি উপেক্ষা
+                করে, যে ফাংশনে সেগুলোকে সংজ্ঞায়িত করা হয় তার সর্বত্র অ্যাক্সেসযোগ্য থাকে । `let` এবং `const` শুধুমাত্র
+                সেই নির্দিষ্ট ব্লক {}-এর মধ্যেই সীমাবদ্ধ থাকে যেখানে সেগুলোকে লেখা হয়। const-কে ঘোষণার সময়ই একটি মান
+                দিয়ে প্রারম্ভিকীকরণ করতে হয়, অপরদিকে var এবং let-কে প্রথমে ঘোষণা করে পরে মান নির্ধারণ করা যায়।</div>
         </div>
         <div class="collapse collapse-plus bg-[#FFEBEB20] border border-base-300 my-4">
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title font-semibold">What is the difference between map(), forEach(), and filter()
             </div>
-            <div class="collapse-content text-sm">map() প্রতিটা element নিয়ে কাজ করে নতুন array তৈরি করে.forEach() শুধু loop চালায়, কিছু return করে না. filter() condition দিয়ে কিছু element বেছে নেয় </div>
+            <div class="collapse-content text-sm">map() প্রতিটা element নিয়ে কাজ করে নতুন array তৈরি করে.forEach() শুধু
+                loop চালায়, কিছু return করে না. filter() condition দিয়ে কিছু element বেছে নেয় </div>
         </div>
         <div class="collapse collapse-plus bg-[#FFEBEB20] border border-base-300 my-4">
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title font-semibold">Where are arrow functions and how they are different from regular
                 functions?</div>
-            <div class="collapse-content text-sm">ES6-এ প্রবর্তিত অ্যারো ফাংশন হলো জাভাস্ক্রিপ্ট ফাংশন লেখার একটি সংক্ষিপ্ত সিনট্যাক্স (যেমন, () => {}), যা সাধারণত কলব্যাক এবং অ্যারে মেথডের জন্য ব্যবহৃত হয়। সাধারণ ফাংশনের মতো এগুলোর নিজস্ব 'this' বা আর্গুমেন্ট বাইন্ডিং থাকে না এবং এগুলোকে কনস্ট্রাক্টর হিসেবে ব্যবহার করা যায় না, যা লেক্সিকাল স্কোপ বজায় রাখার জন্য এগুলোকে আদর্শ করে তোলে। অ্যারো ফাংশন একটি সংক্ষিপ্ত সিনট্যাক্স প্রদান করে, যা `function` কীওয়ার্ডের প্রয়োজনীয়তা দূর করে এবং একক এক্সপ্রেশনের জন্য অন্তর্নিহিত রিটার্নের সুযোগ দেয়।</div>
+            <div class="collapse-content text-sm">ES6-এ প্রবর্তিত অ্যারো ফাংশন হলো জাভাস্ক্রিপ্ট ফাংশন লেখার একটি
+                সংক্ষিপ্ত সিনট্যাক্স (যেমন, () => {}), যা সাধারণত কলব্যাক এবং অ্যারে মেথডের জন্য ব্যবহৃত হয়। সাধারণ
+                ফাংশনের মতো এগুলোর নিজস্ব 'this' বা আর্গুমেন্ট বাইন্ডিং থাকে না এবং এগুলোকে কনস্ট্রাক্টর হিসেবে ব্যবহার
+                করা যায় না, যা লেক্সিকাল স্কোপ বজায় রাখার জন্য এগুলোকে আদর্শ করে তোলে। অ্যারো ফাংশন একটি সংক্ষিপ্ত
+                সিনট্যাক্স প্রদান করে, যা `function` কীওয়ার্ডের প্রয়োজনীয়তা দূর করে এবং একক এক্সপ্রেশনের জন্য
+                অন্তর্নিহিত রিটার্নের সুযোগ দেয়।</div>
         </div>
         <div class="collapse collapse-plus bg-[#FFEBEB20] border border-base-300 my-4">
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title font-semibold">How do JavaScript Promises work</div>
-            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, প্রমিস (Promise) হলো একটি অবজেক্ট যা কোনো অ্যাসিঙ্ক্রোনাস অপারেশনের চূড়ান্ত সমাপ্তি (বা ব্যর্থতা) এবং তার ফলাফলকে নির্দেশ করে। এটিকে এমন একটি ফলাফলের জন্য প্লেসহোল্ডার হিসেবে ভাবা যেতে পারে যা এখনও প্রস্তুত নয়। 1. প্রাথমিক অবস্থা; কার্যক্রমটি এখনও চলমান। 2.অপারেশনটি সফলভাবে সম্পন্ন হয়েছে এবং একটি ফলাফল মান উপলব্ধ আছে। 3.অপারেশনটি ব্যর্থ হয়েছে এবং একটি ত্রুটি বা কারণ উল্লেখ করা হয়েছে।</div>
+            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, প্রমিস (Promise) হলো একটি অবজেক্ট যা কোনো
+                অ্যাসিঙ্ক্রোনাস অপারেশনের চূড়ান্ত সমাপ্তি (বা ব্যর্থতা) এবং তার ফলাফলকে নির্দেশ করে। এটিকে এমন একটি
+                ফলাফলের জন্য প্লেসহোল্ডার হিসেবে ভাবা যেতে পারে যা এখনও প্রস্তুত নয়। 1. প্রাথমিক অবস্থা; কার্যক্রমটি
+                এখনও চলমান। 2.অপারেশনটি সফলভাবে সম্পন্ন হয়েছে এবং একটি ফলাফল মান উপলব্ধ আছে। 3.অপারেশনটি ব্যর্থ হয়েছে
+                এবং একটি ত্রুটি বা কারণ উল্লেখ করা হয়েছে।</div>
         </div>
         <div class="collapse collapse-plus bg-[#FFEBEB20] border border-base-300 my-4">
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title font-semibold">How does closures work in JavaScript</div>
-            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, ক্লোজার হলো এমন একটি বৈশিষ্ট্য যেখানে একটি ভেতরের ফাংশন তার বাইরের ফাংশনের কার্য সম্পাদন শেষ হওয়ার পরেও সেই ফাংশনটির ভেরিয়েবল এবং স্কোপ ব্যবহার করার সুযোগ ধরে রাখে</div>
+            <div class="collapse-content text-sm">জাভাস্ক্রিপ্টে, ক্লোজার হলো এমন একটি বৈশিষ্ট্য যেখানে একটি ভেতরের
+                ফাংশন তার বাইরের ফাংশনের কার্য সম্পাদন শেষ হওয়ার পরেও সেই ফাংশনটির ভেরিয়েবল এবং স্কোপ ব্যবহার করার
+                সুযোগ ধরে রাখে</div>
         </div>
     </section>
     <!-- footer -->
-    <footer 
+    <footer
         class="footer sm:footer-horizontal  items-center p-4 flex justify-between border-t-2 border-[#FFEBEB] py-5 my-5">
         <aside>
             <div class="nav-logo flex justify-center items-center">

@@ -121,7 +121,7 @@ const displayLevelData = (datas) => {
       //  console.log(data.level_no);
       const div = document.createElement("div");
       div.innerHTML = `
-                    <button id="btn-${data.level_no}" onclick="loadSingleBtnData(${data.level_no})" class="btn  primary-color  "><img src="assets/fa-book-open.png" alt="">Learn-${data.level_no}</button>      
+                    <button id="btn-${data.level_no}" onclick="loadSingleBtnData(${data.level_no})" class="btn  primary-color text-[#422AD5] hover:bg-[#422AD5] hover:text-white "><img src="assets/fa-book-open.png" alt="">Learn-${data.level_no}</button>      
    `
       btnContainer.append(div)
    });
