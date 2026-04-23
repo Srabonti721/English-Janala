@@ -26,6 +26,10 @@ document.getElementById("get-started").addEventListener("click", function (event
    else {
       alert("invalid input")
    }
+   alert(" valid input get started successfully ")
+})
+document.getElementById("logout").addEventListener("click", function () {
+   addSection()
 })
 
 function hideSection() {
@@ -33,6 +37,12 @@ function hideSection() {
    document.getElementById("vocabularie").classList.remove("hidden")
    document.getElementById("frequent").classList.remove("hidden")
    document.getElementById("hero-hidden").classList.add("hidden")
+}
+function addSection() {
+   document.getElementById("nav-hide").classList.add("hidden")
+   document.getElementById("vocabularie").classList.add("hidden")
+   document.getElementById("frequent").classList.add("hidden")
+   document.getElementById("hero-hidden").classList.remove("hidden")
 }
 
 document.getElementById("faq-btn").addEventListener("click", function () {
@@ -84,9 +94,9 @@ const displayCardDetails = (cardDetails) => {
 </div>
 <div class="my-4">
    <h1 class="font-semibold text-xl my-2">সমার্থক শব্দ গুলো</h1>
-<button class ="btn">${cardDetails.synonyms[0] == undefined ?" অর্থ খুজে পাওয়া যাচ্ছে না":`${cardDetails.synonyms[0]}`}</button>
-<button class ="btn mx-4">${cardDetails.synonyms[1] == undefined ?" অর্থ খুজে পাওয়া যাচ্ছে না":`${cardDetails.synonyms[1]}`}</button>
-<button class ="btn">${cardDetails.synonyms[2] == undefined ?" অর্থ খুজে পাওয়া যাচ্ছে না":`${cardDetails.synonyms[2]}`}</button>
+<button class ="btn">${cardDetails.synonyms[0] == undefined ? " অর্থ খুজে পাওয়া যাচ্ছে না" : `${cardDetails.synonyms[0]}`}</button>
+<button class ="btn mx-4">${cardDetails.synonyms[1] == undefined ? " অর্থ খুজে পাওয়া যাচ্ছে না" : `${cardDetails.synonyms[1]}`}</button>
+<button class ="btn">${cardDetails.synonyms[2] == undefined ? " অর্থ খুজে পাওয়া যাচ্ছে না" : `${cardDetails.synonyms[2]}`}</button>
 </div>
    `
    hideLoading()
@@ -160,7 +170,7 @@ const displaySingleBtnData = (allDatas) => {
     <h3 class="font-medium text-sm">meaning/pronunciation</h3>
   
    <p class="text-2xl font-semibold">
-   ${data.meaning == null ?"অর্থ নেই":`${data.meaning}/${data.pronunciation}`}</p>
+   ${data.meaning == null ? "অর্থ নেই" : `${data.meaning}/${data.pronunciation}`}</p>
   </div>
     <div class="flex justify-between items-center mt-2 ">
       <button onclick="loadCardDetails('${data.id}')" class="btn">
@@ -177,6 +187,4 @@ const displaySingleBtnData = (allDatas) => {
    hideLoading()
 }
 loadLevelData()
-//  <p class="text-sm text-gray-400 flex gap-1">${video.authors[0].profile_name}
-//         ${video.authors[0].verified == true ? `<img class="w-5 h-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt="">`:' '}
-//     </p>
+
